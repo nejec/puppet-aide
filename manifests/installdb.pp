@@ -3,7 +3,6 @@ class aide::installdb inherits aide {
     command     => "${::aide::params::aide_path} --init --config ${::aide::conf_path}",
     user        => 'root',
     refreshonly => true,
-    #subscribe   => Package['aide'],
     subscribe   => Concat['aide.conf']
   }
 

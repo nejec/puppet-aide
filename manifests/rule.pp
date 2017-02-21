@@ -16,7 +16,6 @@ define aide::rule($content='', $order=10) {
   validate_string($body)
 
   concat::fragment{ "aide_fragment_${name}":
-    #target  => $aide::params::conf_path,
     target  => 'aide.conf',
     order   => $order,
     content => $body,

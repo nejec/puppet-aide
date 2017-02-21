@@ -4,7 +4,7 @@ class aide::params {
   $version          = latest
   $db_path          = '/var/lib/aide/aide.db'
   $db_temp_path     = '/var/lib/aide/aide.db.new'
-  $hour             = 3
+  $hour             = 1
   $minute         = 0
   $email            = undef
 
