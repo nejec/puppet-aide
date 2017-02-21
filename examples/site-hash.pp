@@ -4,9 +4,9 @@ class { '::aide':
       content => '/etc p+md5',
       order   => 1,
     },
-#    'boot'  => {
-#      content => '/boot p+md5',
-#      order   => 2,
-#    },
+    'boot'  => {
+      content => '/boot p+md5',
+      order   => 2,
+    },
   },
 }

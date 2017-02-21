@@ -43,7 +43,10 @@
 # Copyright 2017 Luke Hinds
 #
 class aide (
-  $package_name            = $::aide::params::package_name,
+  $package_name = $::aide::params::package_name,
+  $hour                   = $aide::params::hour,
+  $minute               = $aide::params::minute,
+  $email                  = $aide::params::email,
   $rules                   = {},
 ) inherits aide::params {
 
@@ -74,5 +77,7 @@ class aide (
   if $rules {
     create_resources('::aide::rule', $rules)
   }
+
+ contain 'aide::cron'
 
 }
