@@ -1,0 +1,22 @@
+{
+  "name": "puppet-aide",
+  "version": "0.1.0",
+  "author": "lhinds",
+  "summary": "Module to manage AIDE",
+  "license": "Apache-2.0",
+  "source": "https://github.com/lukehinds/puppet-aide",
+  "project_page": "https://github.com/lukehinds/puppet-aide",
+  "issues_url": "https://github.com/lukehinds/puppet-aide/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement":">=1.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement":">=1.0.0"
+    }
+  ],
+  "data_provider": null
+}
+
