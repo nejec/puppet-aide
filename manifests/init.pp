@@ -73,7 +73,7 @@ class aide (
     content => template( 'aide/aide.conf.erb')
   }
 
-# If a hash of rules is supplied with class then call auditd::rules defined type to apply them
+# If a hash of rules is supplied with class then call auditd::rules
   if $rules {
     create_resources('::aide::rule', $rules)
   }

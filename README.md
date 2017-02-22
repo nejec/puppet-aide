@@ -15,33 +15,93 @@
 Puppet module for the management of AIDE - Advanced Intrusion Detection
 Enviroment.
 
-## Setup
+## Examples
 
-### Beginning with aide
+### Basic Rule Entry
 
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
+A series of rules can be made to `aide.conf` by supplying each rule to `aide::rule`
 
-## Usage
+    aide::rule { 'etc rule':
+      content => '/etc p+sha256',
+      order   => 1,
+    }
+    aide::rule { 'boot rule':
+      content => '/boot p+sha256',
+      order   => 2,
+    }
 
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
+The `order` denotes the sequence of rule placement within `aide.conf`
 
-## Reference
+### Basic Rule using alias
 
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
+Rules can be grouped under a common alias, to allow easy repetition:
+
+  aide::rule { 'MyComplexRule':
+    content => 'p+i+l+n+u+g+s+m+c+md5',
+    order   => 1,
+  }
+  aide::rule { 'boot MyComplexRule':
+    content => '/boot p+sha256',
+    order   => 2,
+  }
+  aide::rule { 'boot MyComplexRule':
+    content => '/boot p+sha256',
+    order   => 3,
+  }
+
+Note: Your custom rule defination needs to be `order` 1, so as to insure its placement at
+the top, so that rules can then inherit the "MyComplexRule" alias.
+
+### Rules using hash
+
+Rules can also be passed as a hash:
+
+    rules => {
+      'MyRule' => {
+        content => 'MyRule = p+sha256',
+        order   => 1,
+      },
+      'etc' => {
+        content => '/etc MyRule',
+        order   => 2,
+      },
+      'boot'  => {
+        content => '/boot MyRule',
+        order   => 3,
+      },
+    }
+
+
+
+## CRON
+
+A cron entry is made using the parameters `hour`and `minute`.
+
+If the parameter `email` is set, then `mailx` will be installed and an entry will be made to
+crontab as follows:
+
+    0 1 * * * /usr/sbin/aide --check --config=/etc/aide.conf | /bin/mail -s "$HOSTNAME - Daily AIDE integrity check" your_email@example.com
+
+## HIERA
+
+Values can be set using hiera, for example:
+
+    aide::email: 'your_email@example.com'
+
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
+Currently supports RedHat / CentOS 7 and Debian 8 - plans are in place to extend to Arch,
+Gentoo and others.
+
+Currently only tested against Puppet 4.
 
 ## Contributors
 
 Pull requests are welcome. Please ensure any code follows the Puppet Style
-Guide and that new functionality is provided with unit tests using rspec.
+Guide and that new functionality is provided with unit tests when possible.
+
+## Special Thanks
+
+Some of the design ideas are thanks to [Matt Lauber](https://github.com/mklauber). This
+version is a refactor of his earlier module, but with hashes, spec tests, cron, hiera and other features added.
