@@ -1,4 +1,4 @@
-# aide
+# Puppet AIDE - Advanced Intrusion Detection Enviroment.
 
 #### Table of Contents
 
@@ -74,7 +74,7 @@ Rules can also be passed as a hash:
       },
     }
 
-
+More examples can be found in [aide/examples](https://github.com/lukehinds/puppet-aide/tree/master/examples)
 
 ## CRON
 
