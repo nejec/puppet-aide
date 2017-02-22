@@ -13,12 +13,6 @@ describe 'aide', type: 'class' do
         'ensure' => 'latest',
         'name'   => 'aide',
       })
-      should contain_file('/etc/aide.conf').with({
-        'ensure' => 'file',
-        'owner'  => 'root',
-        'group'  => 'root',
-        'mode'   => '0600',
-      })
     }
   end
   context 'default parameters on Debian 8' do
@@ -34,12 +28,21 @@ describe 'aide', type: 'class' do
         'ensure' => 'latest',
         'name'   => 'aide',
       })
-      should contain_file('/etc/aide/aide.conf').with({
-        'ensure' => 'file',
-        'owner'  => 'root',
-        'group'  => 'root',
-        'mode'   => '0600',
-      })
+    }
+  end
+end
+
+
+describe 'aide::cron', type: 'class' do
+  context 'default parameters cron' do
+    let (:facts) {{
+      :osfamily               => 'RedHat',
+      :operatingsystem        => 'RedHat',
+      :operatingsystemrelease => '7',
+      :concat_basedir => '/tmp',
+    }}
+    it {
+      should contain_class('aide::cron')
     }
   end
 end
