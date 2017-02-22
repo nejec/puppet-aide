@@ -15,8 +15,8 @@
 
 ## Description
 
-Puppet module for the management of AIDE - Advanced Intrusion Detection
-Enviroment.
+Puppet module for the management of [AIDE - Advanced Intrusion Detection
+Enviroment](http://aide.sourceforge.net/).
 
 ## Examples
 
