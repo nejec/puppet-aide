@@ -3,12 +3,15 @@
 #### Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with aide](#setup)
-    * [Beginning with aide](#beginning-with-aide)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+2. [Examples-  The basics of getting started with aide](#Examples)
+    * [Basic Rule Entry](#Basic-Rule-Entry)
+    * [Basic Rule using alias](#Basic-Rule-using-alias)
+    * [Rules provided as a hash](#Rules-provided-as-a-hash)
+3. [Cron - CRON Entries](#cron)
+4. [Hiera - Populating parameters using Hiera data](#heira)
+5. [Limitations - OS compatibility, etc.](#limitations)
+6. [Development - Guide for contributing to the module](#Contributors)
+7. [Credits](#Credits)
 
 ## Description
 
@@ -52,7 +55,7 @@ Rules can be grouped under a common alias, to allow easy repetition:
 Note: Your custom rule defination needs to be `order` 1, so as to insure its placement at
 the top, so that rules can then inherit the "MyComplexRule" alias.
 
-### Rules using hash
+### Rules provided as a hash
 
 Rules can also be passed as a hash:
 
@@ -101,7 +104,7 @@ Currently only tested against Puppet 4.
 Pull requests are welcome. Please ensure any code follows the Puppet Style
 Guide and that new functionality is provided with unit tests when possible.
 
-## Special Thanks
+## Credits
 
 Some of the design ideas are thanks to [Matt Lauber](https://github.com/mklauber). This
 version is a refactor of his earlier module, but with hashes, spec tests, cron, hiera and other features added.
