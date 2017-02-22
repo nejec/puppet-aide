@@ -22,6 +22,7 @@ pkg
 Gemfile.lock
 spec/fixtures
 vendor
+.bundle
 
 ## vagrant
 .vagrant/
