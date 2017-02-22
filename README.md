@@ -5,7 +5,7 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Examples-  The basics of getting started with aide](#examples)
+2. [Examples-  The basics of getting started with puppet-aide](#examples)
     * [Basic Rule Entry](#basic-rule-entry)
     * [Basic Rule using alias](#basic-rule-using-alias)
     * [Rules provided as a hash](#rules-provided-as-a-hash)
