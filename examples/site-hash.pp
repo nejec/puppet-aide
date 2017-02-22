@@ -1,5 +1,7 @@
 class { '::aide':
   email  => 'root@localhost',
+  hour => 3,
+  minute => 0,
   rules => {
     'etc' => {
       content => '/etc p+md5',
