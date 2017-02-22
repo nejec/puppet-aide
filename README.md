@@ -1,5 +1,7 @@
 # Puppet AIDE - Advanced Intrusion Detection Enviroment.
 
+[![Build Status](https://travis-ci.org/lukehinds/puppet-aide.svg?branch=master)](https://travis-ci.org/lukehinds/puppet-aide)
+
 #### Table of Contents
 
 1. [Description](#description)
