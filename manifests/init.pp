@@ -43,7 +43,7 @@
 # Copyright 2017 Luke Hinds
 #
 class aide (
-  $package_name = $::aide::params::package_name,
+  $package                = $::aide::params::package,
   $hour                   = $aide::params::hour,
   $minute               = $aide::params::minute,
   $email                  = $aide::params::email,
@@ -52,19 +52,19 @@ class aide (
 
   package { 'aide':
       ensure => $::aide::version,
-      name   => $package_name,
+      name   => $package,
       alias  => 'aide',
   }
 
   contain 'aide::installdb'
 
   concat { 'aide.conf':
-    path    => $::aide::conf_path,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0600',
+    path           => $::aide::conf_path,
+    owner          => 'root',
+    group          => 'root',
+    mode           => '0600',
     ensure_newline => true,
-    require => Package['aide']
+    require        => Package['aide']
   }
 
   concat::fragment { 'aide.conf.header':
@@ -77,7 +77,5 @@ class aide (
   if $rules {
     create_resources('::aide::rule', $rules)
   }
-
- contain 'aide::cron'
-
+  contain 'aide::cron'
 }

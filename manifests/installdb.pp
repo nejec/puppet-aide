@@ -1,3 +1,4 @@
+# Initialises new database and copies it to the correct naming convention
 class aide::installdb inherits aide {
   exec { 'aide init':
     command     => "${::aide::params::aide_path} --init --config ${::aide::conf_path}",
