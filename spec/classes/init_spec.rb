@@ -8,7 +8,7 @@ describe 'aide', type: 'class' do
       :concat_basedir => '/tmp',
     }}
     it {
-      should contain_class('break')
+      should contain_class('aide')
       should contain_package('aide').with({
         'ensure' => 'latest',
         'name'   => 'aide',
