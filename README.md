@@ -3,14 +3,14 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Examples-  The basics of getting started with aide](#Examples)
-    * [Basic Rule Entry](#Basic-Rule-Entry)
-    * [Basic Rule using alias](#Basic-Rule-using-alias)
-    * [Rules provided as a hash](#Rules-provided-as-a-hash)
+2. [Examples-  The basics of getting started with aide](#examples)
+    * [Basic Rule Entry](#basic-rule-entry)
+    * [Basic Rule using alias](#basic-rule-using-alias)
+    * [Rules provided as a hash](#rules-provided-as-a-hash)
 3. [Cron - CRON Entries](#cron)
 4. [Hiera - Populating parameters using Hiera data](#heira)
 5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#Contributors)
+6. [Development - Guide for contributing to the module](#contributors)
 7. [Credits](#Credits)
 
 ## Description
