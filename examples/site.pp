@@ -1,7 +1,8 @@
 node default {
   class { 'aide':
     email  => 'root@localhost',
-    hour => 1,
+    hour => 3,
+    minute => 0,
 }
   aide::rule { 'etc rule':
     content => '/etc p+sha256',

@@ -1,12 +1,12 @@
 # aide::params sets the default values for parameters.
 class aide::params {
   $package          = 'aide'
-  $version          = latest
-  $db_path          = '/var/lib/aide/aide.db'
-  $db_temp_path     = '/var/lib/aide/aide.db.new'
-  $hour             = 1
-  $minute         = 0
-  $email            = undef
+  $version          = hiera("version",latest)
+  $db_path          = hiera("db_path","/var/lib/aide/aide.db")
+  $db_temp_path     = hiera("db_temp_path","/var/lib/aide/aide.db.new")
+  $hour             = hiera("hour",1)
+  $minute           = hiera("minute",0)
+  $email            = hiera("email",undef)
 
   case $::osfamily {
     'Debian': {
