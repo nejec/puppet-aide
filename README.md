@@ -39,18 +39,18 @@ The `order` denotes the sequence of rule placement within `aide.conf`
 
 Rules can be grouped under a common alias, to allow easy repetition:
 
-  aide::rule { 'MyComplexRule':
-    content => 'p+i+l+n+u+g+s+m+c+md5',
-    order   => 1,
-  }
-  aide::rule { 'boot MyComplexRule':
-    content => '/boot p+sha256',
-    order   => 2,
-  }
-  aide::rule { 'boot MyComplexRule':
-    content => '/boot p+sha256',
-    order   => 3,
-  }
+    aide::rule { 'MyComplexRule':
+      content => 'p+i+l+n+u+g+s+m+c+md5',
+      order   => 1,
+    }
+    aide::rule { 'boot MyComplexRule':
+      content => '/boot p+sha256',
+      order   => 2,
+    }
+    aide::rule { 'boot MyComplexRule':
+      content => '/boot p+sha256',
+      order   => 3,
+    }
 
 Note: Your custom rule defination needs to be `order` 1, so as to insure its placement at
 the top, so that rules can then inherit the "MyComplexRule" alias.
