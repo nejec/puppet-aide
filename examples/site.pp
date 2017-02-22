@@ -7,8 +7,8 @@ node default {
     content => '/etc p+sha256',
     order   => 1,
   }
-  aide::rule { 'tmp rule':
-    content => '/tmp p+sha256',
+  aide::rule { 'boot rule':
+    content => '/boot p+sha256',
     order   => 2,
   }
 }

@@ -1,4 +1,5 @@
 class { '::aide':
+  email  => 'root@localhost',
   rules => {
     'etc' => {
       content => '/etc p+md5',
