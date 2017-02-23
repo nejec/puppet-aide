@@ -1,9 +1,9 @@
 {
   "name": "lhinds-aide",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Luke Hinds",
   "license": "Apache-2.0",
-  "summary": "Module to manage AIDE",
+  "summary": "Install and manage AIDE rules, init Database and create cron job",
   "source": "https://github.com/lukehinds/puppet-aide",
   "project_page": "https://github.com/lukehinds/puppet-aide",
   "issues_url": "https://github.com/lukehinds/puppet-aide/issues",
