@@ -1,5 +1,5 @@
 class { '::aide':
-  email  => 'root@localhost',
+  email  => 'your_email@example.com',
   hour   => 3,
   minute => 0,
   rules  => {

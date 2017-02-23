@@ -6,7 +6,7 @@ class aide::params {
   $db_temp_path     = hiera('db_temp_path','/var/lib/aide/aide.db.new')
   $hour             = hiera('hour',1)
   $minute           = hiera('minute',0)
-  $email            = hiera('email',undef)
+  $email            = hiera('email','root@localhost')
 
   case $::osfamily {
     'Debian': {
