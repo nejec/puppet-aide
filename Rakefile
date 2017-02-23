@@ -2,6 +2,13 @@ require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
 
+module TempFixForRakeLastComment
+  def last_comment
+    last_description
+  end
+end
+
+Rake::Application.send :include, TempFixForRakeLastComment
 # puppet-lint parameters per puppet approved criteria
 # https://forge.puppetlabs.com/approved/criteria#validation
 PuppetLint.configuration.fail_on_warnings = true
