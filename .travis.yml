@@ -6,7 +6,7 @@ rvm:
 script: bundle exec rake test
 env:
   matrix:
-  #- PUPPET_VERSION="~> 3.4.0"
+  - PUPPET_VERSION="~> 3.4.0"
   - PUPPET_VERSION="~> 4.0.0"
 matrix:
   include:
