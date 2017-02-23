@@ -3,15 +3,15 @@ class { '::aide':
   hour   => 3,
   minute => 0,
   rules  => {
-    'MyRule'  => {
+    'MyRule' => {
       content => 'MyRule = p+sha256',
       order   => 1,
     },
-    'etc'     => {
+    'etc'    => {
       content => '/etc MyRule',
       order   => 2,
     },
-    'boot'    => {
+    'boot'   => {
       content => '/boot MyRule',
       order   => 3,
     },
