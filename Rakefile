@@ -21,7 +21,7 @@ PuppetLint.configuration.send('disable_class_parameter_defaults')
 # Approved criteria disable these two but lets be a bit more stringent
 #PuppetLint.configuration.send('disable_documentation')
 #PuppetLint.configuration.send('disable_single_quote_string_with_variables')
-PuppetLint.configuration.log_format = "%{path}:%{linenumber}:%{check}:%{KIND}:%{message}"
+PuppetLint.configuration.log_format = "%{path}:%{line}:%{check}:%{KIND}:%{message}"
 
 exclude_paths = [
   "pkg/**/*",
