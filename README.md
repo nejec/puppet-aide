@@ -34,7 +34,7 @@ the AIDE database to implement the new rules.
 
 ### Basic Rule Entry
 
-A series of rules can be passed to `aide.conf` by supplying each rule to th
+A series of rules can be passed to `aide.conf` by supplying each rule to the
 `aide::rule` class:
 
     aide::rule { 'etc rule':

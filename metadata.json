@@ -1,14 +1,13 @@
 {
   "name": "lhinds-aide",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Luke Hinds",
-  "license": "Apache-2.0",
   "summary": "Install and manage AIDE rules, init Database and create cron job",
+  "license": "Apache-2.0",
   "source": "https://github.com/lukehinds/puppet-aide",
   "project_page": "https://github.com/lukehinds/puppet-aide",
   "issues_url": "https://github.com/lukehinds/puppet-aide/issues",
   "tags": ["aide", "audit", "auditing", "file integrity", "ids"],
-  "license": "Apache Version 2.0",
   "operatingsystem_support": [
     {
     "operatingsystem": "RedHat",
@@ -42,11 +41,11 @@
   "dependencies": [
     {
       "name": "puppetlabs/concat",
-      "version_requirement":">=1.0.0"
+      "version_requirement":">= 2.0.0 < 2.2.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement":">=1.0.0"
+      "version_requirement":">=4.0.0 < 4.15.0"
     }
   ],
   "data_provider": null
