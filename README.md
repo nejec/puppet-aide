@@ -5,7 +5,7 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Examples-  The basics of getting started with puppet-aide](#examples)
+2. [Examples](#examples)
     * [Basic Rule Entry](#basic-rule-entry)
     * [Basic Rule using alias](#basic-rule-using-alias)
     * [Rules provided as a hash](#rules-provided-as-a-hash)
@@ -17,14 +17,25 @@
 
 ## Description
 
-Puppet module for the management of [AIDE - Advanced Intrusion Detection
+A Puppet module for the management of [AIDE - Advanced Intrusion Detection
 Enviroment](http://aide.sourceforge.net/).
+
+This module will install the AIDE package, populate rules into `aide.conf` and
+initiate a new database.
+
+A CRON job is created to allow a perodic run of
+`aide --check` with the results logged to `/var/log/audit` or via an emailed
+report.
+
+If at any time, the rules parameters are changed, the module will re-initiate
+the AIDE database to implement the new rules.
 
 ## Examples
 
 ### Basic Rule Entry
 
-A series of rules can be made to `aide.conf` by supplying each rule to `aide::rule`
+A series of rules can be passed to `aide.conf` by supplying each rule to th
+`aide::rule` class:
 
     aide::rule { 'etc rule':
       content => '/etc p+sha256',
@@ -42,7 +53,7 @@ The `order` denotes the sequence of rule placement within `aide.conf`
 Rules can be grouped under a common alias, to allow easy repetition:
 
     aide::rule { 'MyComplexRule':
-      content => 'p+i+l+n+u+g+s+m+c+md5',
+      content => 'p+i+l+n+u+g+s+m+c+sha256',
       order   => 1,
     }
     aide::rule { 'boot':
@@ -54,8 +65,7 @@ Rules can be grouped under a common alias, to allow easy repetition:
       order   => 3,
     }
 
-Note: Your custom rule defination needs to be `order` 1, so as to insure its placement at
-the top, so that rules can then inherit the "MyComplexRule" alias.
+Note: Custom rule declarations need to be placed at `order` 1.
 
 ### Rules provided as a hash
 
@@ -96,10 +106,10 @@ Values can be set using hiera, for example:
 
 ## Limitations
 
-Currently supports RedHat / CentOS 7 and Debian 8 - plans are in place to extend to Arch,
-Gentoo and others.
+Currently supports RedHat / CentOS 7 and Debian 8.
 
-Currently only tested against Puppet 4.
+Currently travis build tests run against Puppet 4, but I have used this module
+with no issues on Puppet 3.
 
 ## Contributors
 
@@ -108,5 +118,6 @@ Guide and that new functionality is provided with unit tests when possible.
 
 ## Credits
 
-Some of the design ideas are thanks to [Matt Lauber](https://github.com/mklauber). This
-version is a refactor of his earlier module, but with hashes, spec tests, cron, hiera and other features added.
+Some of the design ideas are thanks to [Matt Lauber](https://github.com/mklauber).
+This version is a refactor of his earlier module, but with hashes, spec tests,
+cron, hiera and other features added.
