@@ -1,7 +1,7 @@
 node default {
   class { 'aide':
     email  => 'root@localhost',
-    hour => 3,
+    hour   => 3,
     minute => 0,
 }
   aide::rule { 'etc rule':

@@ -1,12 +1,12 @@
 # aide::params sets the default values for parameters.
 class aide::params {
   $package          = 'aide'
-  $version          = hiera("version",latest)
-  $db_path          = hiera("db_path","/var/lib/aide/aide.db")
-  $db_temp_path     = hiera("db_temp_path","/var/lib/aide/aide.db.new")
-  $hour             = hiera("hour",1)
-  $minute           = hiera("minute",0)
-  $email            = hiera("email",undef)
+  $version          = hiera('version', latest)
+  $db_path          = hiera('db_path','/var/lib/aide/aide.db')
+  $db_temp_path     = hiera('db_temp_path','/var/lib/aide/aide.db.new')
+  $hour             = hiera('hour',1)
+  $minute           = hiera('minute',0)
+  $email            = hiera('email',undef)
 
   case $::osfamily {
     'Debian': {
@@ -20,11 +20,11 @@ class aide::params {
       $mail_path = '/bin/mail'
     }
     default: {
-      fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
+      fail('The ${module_name} module is not supported on an ${::osfamily} based system.')
     }
   }
 
-  $command          = "${::aide::params::aide_path}"
-  $check_parameters = "--config=${conf_path}"
+  $command          = '${::aide::params::aide_path}'
+  $check_parameters = '--config=${conf_path}'
 
 }
