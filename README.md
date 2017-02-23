@@ -45,12 +45,12 @@ Rules can be grouped under a common alias, to allow easy repetition:
       content => 'p+i+l+n+u+g+s+m+c+md5',
       order   => 1,
     }
-    aide::rule { 'boot MyComplexRule':
-      content => '/boot p+sha256',
+    aide::rule { 'boot':
+      content => '/boot MyComplexRule',
       order   => 2,
     }
-    aide::rule { 'boot MyComplexRule':
-      content => '/boot p+sha256',
+    aide::rule { 'etc ':
+      content => '/etc MyComplexRule',
       order   => 3,
     }
 
