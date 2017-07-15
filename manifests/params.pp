@@ -7,6 +7,7 @@ class aide::params {
   $hour             = hiera('hour',1)
   $minute           = hiera('minute',0)
   $email            = hiera('email','root@localhost')
+  $ensure_cron      = hiera('ensure_cron', 'present')
 
   case $::osfamily {
     'Debian': {

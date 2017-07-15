@@ -90,7 +90,7 @@ More examples can be found in [aide/examples](https://github.com/lukehinds/puppe
 
 ## CRON
 
-A cron entry is made using the parameters `hour`and `minute`.
+A cron entry is made using the parameters `hour`and `minute` and can be omitted setting the parameter `ensure_cron` to false.
 
 If the parameter `email` is set, then `mailx` will be installed and an entry will be made to
 crontab as follows:

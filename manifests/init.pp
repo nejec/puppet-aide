@@ -47,6 +47,7 @@ class aide (
   $hour                   = $aide::params::hour,
   $minute               = $aide::params::minute,
   $email                  = $aide::params::email,
+  $ensure_cron            = $aide::params::ensure_cron,
   $rules                   = {},
 ) inherits aide::params {
 

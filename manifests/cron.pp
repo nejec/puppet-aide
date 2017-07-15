@@ -10,6 +10,7 @@ class aide::cron inherits aide {
         $cron_entry = "${aide::command} --check ${aide::check_parameters} > /var/log/audit/aide_`date +%Y-%m-%d`.log"
       }
       cron { 'aide':
+        ensure  => $::aide::ensure_cron,
         command => $cron_entry,
         user    => 'root',
         hour    => $::aide::hour,
